@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>قصة هند رجب</title>
+
+<style>
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:Tahoma;}
+
+body{
+direction:rtl;
+background:linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.95)),url("story-bg.jpg");
+background-size:cover;
+color:white;
+}
+
+/* NAV */
+
+nav{
+background:rgba(0,0,0,0.7);
+display:flex;
+justify-content:space-between;
+padding:15px 40px;
+}
+
+nav a{
+color:white;
+margin-left:20px;
+text-decoration:none;
+}
+
+/* CONTAINER */
+
+.container{
+width:85%;
+margin:40px auto;
+}
+
+/* IMAGE */
+
+.image{
+text-align:center;
+margin-bottom:30px;
+}
+
+.image img{
+width:350px;
+max-width:100%;
+border-radius:10px;
+}
+
+/* TITLE */
+
+h1{
+margin-bottom:20px;
+}
+
+/* TEXT */
+
+p{
+line-height:1.9;
+color:#ddd;
+margin-bottom:20px;
+}
+
+/* BUTTON */
+
+.back-btn{
+display:inline-block;
+margin-top:20px;
+background:#e74c3c;
+color:white;
+padding:10px 20px;
+text-decoration:none;
+border-radius:5px;
+}
+
+.back-btn:hover{
+background:#c0392b;
+}
+
+/* LANGUAGE */
+
+.en{
+display:none;
+direction:ltr;
+color:#aaa;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+<div>Gaza Voice</div>
+<div>
+<a href="index.html">الرئيسية</a>
+<a href="stories.html">القصص</a>
+<button onclick="toggleLang()" style="background:red;color:white;border:none;padding:8px 15px;border-radius:5px;cursor:pointer;">
+EN / AR
+</button>
+</div>
+</nav>
+
+<div class="container">
+
+<div class="image">
+<img src="hind.jpg">
+</div>
+
+<h1 class="ar">قصة هند رجب</h1>
+<h1 class="en">Hind Rajab Story</h1>
+
+<p class="ar">
+هند رجب، طفلة فلسطينية صغيرة، تحولت قصتها إلى واحدة من أكثر القصص تأثيرًا في الحرب على غزة.
+كانت محاصرة داخل سيارة مع عائلتها تحت القصف، تصرخ طلبًا للمساعدة،
+في مشهد يعكس حجم الألم والخوف الذي يعيشه الأطفال في مناطق النزاع.
+
+استمرت مناشداتها لفترة طويلة، بينما كانت أصوات القصف تحيط بها،
+لتصبح قصتها رمزًا لمعاناة الأطفال الأبرياء الذين وجدوا أنفسهم وسط الحرب دون أي ذنب.
+
+قصة هند ليست مجرد حادثة، بل هي شهادة حية على الواقع الإنساني القاسي،
+حيث يتحول الخوف إلى جزء من الحياة اليومية،
+وتصبح النجاة حلمًا بعيدًا.
+</p>
+
+<p class="en">
+Hind Rajab, a young Palestinian girl, became one of the most heartbreaking stories during the war in Gaza.
+She was trapped inside a car with her family under heavy bombing, crying for help,
+reflecting the fear and pain experienced by children in war zones.
+
+Her calls for help continued while explosions surrounded her,
+making her story a symbol of innocent children suffering in conflict.
+
+Hind's story is not just an incident,
+but a powerful testimony of a harsh human reality
+where survival becomes uncertain.
+</p>
+
+<a href="stories.html" class="back-btn">
+⬅ العودة إلى القصص
+</a>
+
+</div>
+
+<script>
+
+let isArabic = true;
+
+function toggleLang(){
+
+isArabic = !isArabic;
+
+document.querySelectorAll(".ar").forEach(el=>{
+el.style.display = isArabic ? "block" : "none";
+});
+
+document.querySelectorAll(".en").forEach(el=>{
+el.style.display = isArabic ? "none" : "block";
+});
+
+}
+
+</script>
+
+</body>
+</html>

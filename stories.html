@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>قصص غزة</title>
+
+<style>
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:Tahoma;}
+
+body{
+direction:rtl;
+background:linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.95)),url("story-bg.jpg");
+background-size:cover;
+color:white;
+}
+
+/* NAVBAR */
+
+nav{
+background:rgba(0,0,0,0.7);
+display:flex;
+justify-content:space-between;
+padding:15px 40px;
+align-items:center;
+}
+
+nav a{color:white;margin-left:20px;text-decoration:none}
+
+.lang-btn{
+background:#e74c3c;
+border:none;
+padding:8px 15px;
+color:white;
+cursor:pointer;
+border-radius:5px;
+}
+
+/* BREAKING */
+
+.breaking{
+background:#e74c3c;
+padding:10px;
+overflow:hidden;
+white-space:nowrap;
+}
+
+.breaking span{
+display:inline-block;
+animation:move 15s linear infinite;
+}
+
+@keyframes move{
+0%{transform:translateX(100%)}
+100%{transform:translateX(-100%)}
+}
+
+/* STORY BOX */
+
+.story-box{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:40px;
+width:90%;
+margin:60px auto;
+background:rgba(0,0,0,0.85);
+padding:30px;
+border-radius:10px;
+flex-wrap:wrap;
+}
+
+.story-image img{
+width:300px;
+max-width:100%;
+border-radius:10px;
+object-fit:cover;
+}
+
+.story-content{
+max-width:500px;
+text-align:right;
+}
+
+.story-content h2{
+margin-bottom:15px;
+font-size:24px;
+}
+
+.story-content p{
+line-height:1.8;
+color:#ddd;
+margin-bottom:20px;
+}
+
+/* BUTTON */
+
+.read-btn{
+display:inline-block;
+background:#e74c3c;
+color:white;
+padding:10px 20px;
+text-decoration:none;
+border-radius:5px;
+transition:0.3s;
+}
+
+.read-btn:hover{
+background:#c0392b;
+}
+
+/* ENGLISH HIDDEN */
+
+.en{
+display:none;
+direction:ltr;
+color:#aaa;
+}
+
+/* SLIDER */
+
+.slider{
+width:90%;
+margin:40px auto;
+position:relative;
+overflow:hidden;
+}
+
+.track{
+display:flex;
+gap:20px;
+transition:0.5s;
+}
+
+.card{
+min-width:320px;
+background:#111;
+border-radius:10px;
+overflow:hidden;
+border:1px solid rgba(255,0,0,0.3);
+cursor:pointer;
+}
+
+.card video{
+width:100%;
+height:200px;
+object-fit:contain;
+background:black;
+}
+
+.info{
+padding:15px;
+}
+
+.info h3{
+margin-bottom:8px;
+}
+
+/* BUTTONS */
+
+.btn{
+position:absolute;
+top:40%;
+background:red;
+border:none;
+padding:12px;
+color:white;
+cursor:pointer;
+z-index:2;
+}
+
+.left{left:0}
+.right{right:0}
+
+/* POPUP */
+
+.popup{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+display:none;
+justify-content:center;
+align-items:center;
+}
+
+.popup video{
+width:60%;
+max-height:80%;
+object-fit:contain;
+}
+
+.close{
+position:absolute;
+top:20px;
+right:30px;
+font-size:30px;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+<div>Gaza Voice</div>
+<div>
+<a href="index.html">الرئيسية</a>
+<a href="stories.html">القصص</a>
+<button class="lang-btn" onclick="toggleLang()">EN / AR</button>
+</div>
+</nav>
+
+<!-- BREAKING -->
+
+<div class="breaking">
+<span>
+🔴 عاجل: قصص حقيقية من غزة — فقد العائلات — النزوح الجماعي — شهادات من الناجين — صمود رغم الدمار
+</span>
+</div>
+
+<!-- STORY -->
+
+<div class="story-box">
+
+<div class="story-image">
+<img src="main.jpg">
+</div>
+
+<div class="story-content">
+
+<h2 class="ar">الشهيد محمود اسليم</h2>
+<h2 class="en">Martyr Mahmoud Aslim</h2>
+
+<p class="ar">
+محمود اسليم كان صحفيًا ومصورًا، عُرف بحبه للحياة وروحه البشوشة.
+كان يوثق معاناة الناس في الخيام ويوزع المساعدات،
+حتى استهدفته طائرات الاحتلال وهو ينقل الحقيقة.
+</p>
+
+<p class="en">
+Mahmoud Aslim was a journalist and photographer known for his warm spirit.
+He documented the suffering of displaced people until he was targeted and killed.
+</p>
+
+<a href="mahmoud.html" class="read-btn">
+قراءة القصة كاملة
+</a>
+
+</div>
+
+</div>
+
+<!-- SLIDER -->
+
+<div class="slider">
+
+<button class="btn left" onclick="move(-1)">❮</button>
+
+<div class="track" id="track">
+
+<!-- هند -->
+<div class="card" onclick="openVideo('video2.mp4')">
+<video><source src="video2.mp4"></video>
+
+<div class="info">
+<h3 class="ar">قصة هند رجب</h3>
+<h3 class="en">Hind Rajab Story</h3>
+
+<a href="hind.html" class="read-btn" onclick="event.stopPropagation()">
+قراءة القصة
+</a>
+
+</div>
+</div>
+
+<!-- النزوح -->
+ 
+<div class="card" onclick="openVideo('video1.mp4')">
+<video><source src="video1.mp4"></video>
+
+
+
+<div class="info">
+<h3 class="ar">معاناة النزوح</h3>
+<h3 class="en">Displacement Suffering</h3>
+<a href="displacement.html" class="read-btn" onclick="event.stopPropagation()">
+قراءة القصة
+</a>
+
+</div>
+</div>
+
+<!-- محمد -->
+<div class="card" onclick="openVideo('gaza.mp4')">
+<video><source src="gaza.mp4"></video>
+
+<div class="info">
+<h3 class="ar">محمد الحلو</h3>
+<h3 class="en">Mohammad Al-Helou</h3>
+<a href="mohammad.html" class="read-btn" onclick="event.stopPropagation()">
+قراءة القصة
+</a>
+
+</div>
+</div>
+
+</div>
+
+<button class="btn right" onclick="move(1)">❯</button>
+
+</div>
+
+<button class="btn right" onclick="move(1)">❯</button>
+
+</div>
+
+<!-- POPUP -->
+
+<div class="popup" id="popup">
+<span class="close" onclick="closeVideo()">✖</span>
+<video controls id="popupVideo"></video>
+</div>
+
+<script>
+
+let index=0
+
+function move(dir){
+let track=document.getElementById("track")
+index+=dir
+if(index<0) index=0
+if(index>2) index=2
+track.style.transform=`translateX(${index*-340}px)`
+}
+
+function openVideo(src){
+let popup=document.getElementById("popup")
+let video=document.getElementById("popupVideo")
+video.src=src
+popup.style.display="flex"
+}
+
+function closeVideo(){
+document.getElementById("popup").style.display="none"
+document.getElementById("popupVideo").pause()
+}
+
+/* LANGUAGE */
+
+let isArabic = true;
+
+function toggleLang(){
+
+isArabic = !isArabic;
+
+document.querySelectorAll(".ar").forEach(el=>{
+el.style.display = isArabic ? "block" : "none";
+});
+
+document.querySelectorAll(".en").forEach(el=>{
+el.style.display = isArabic ? "none" : "block";
+});
+
+}
+
+</script>
+
+</body>
+</html>

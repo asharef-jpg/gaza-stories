@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>معاناة النزوح</title>
+
+<style>
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:Tahoma;}
+
+body{
+direction:rtl;
+background:linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.95)),url("story-bg.jpg");
+background-size:cover;
+color:white;
+}
+
+/* NAV */
+
+nav{
+background:rgba(0,0,0,0.7);
+display:flex;
+justify-content:space-between;
+padding:15px 40px;
+}
+
+nav a{
+color:white;
+margin-left:20px;
+text-decoration:none;
+}
+
+/* CONTAINER */
+
+.container{
+width:85%;
+margin:40px auto;
+}
+
+/* IMAGE */
+
+.image{
+text-align:center;
+margin-bottom:30px;
+}
+
+.image img{
+width:350px;
+max-width:100%;
+border-radius:10px;
+}
+
+/* TITLE */
+
+h1{
+margin-bottom:20px;
+}
+
+/* TEXT */
+
+p{
+line-height:2;
+color:#ddd;
+margin-bottom:20px;
+}
+
+/* BUTTON */
+
+.back-btn{
+display:inline-block;
+margin-top:20px;
+background:#e74c3c;
+color:white;
+padding:10px 20px;
+text-decoration:none;
+border-radius:5px;
+}
+
+.back-btn:hover{
+background:#c0392b;
+}
+
+/* LANGUAGE */
+
+.en{
+display:none;
+direction:ltr;
+color:#aaa;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+<div>Gaza Voice</div>
+<div>
+<a href="index.html">الرئيسية</a>
+<a href="stories.html">القصص</a>
+<button onclick="toggleLang()" style="background:red;color:white;border:none;padding:8px 15px;border-radius:5px;cursor:pointer;">
+EN / AR
+</button>
+</div>
+</nav>
+
+<div class="container">
+
+<div class="image">
+<img src="displacement.jpg">
+</div>
+
+<h1 class="ar">معاناة النزوح في غزة</h1>
+<h1 class="en">Displacement Suffering in Gaza</h1>
+
+<p class="ar">
+في غزة، لم يعد النزوح مجرد انتقال من مكان إلى آخر، بل أصبح رحلة قاسية مليئة بالخوف والفقد.
+العائلات تضطر لمغادرة منازلها تحت القصف، حاملة ما تستطيع من ذكريات واحتياجات أساسية،
+في طريق مجهول لا يعرفون نهايته.
+
+في كل خيمة قصة، وفي كل زاوية حكاية عن فقدان بيت أو قريب أو أمان.
+الأطفال الذين كانوا يعيشون حياة طبيعية، وجدوا أنفسهم فجأة في بيئة مليئة بالخوف،
+حيث أصبحت أصوات الانفجارات جزءًا من يومهم.
+
+النساء تحاول الحفاظ على تماسك العائلة رغم الألم،
+والرجال يسعون لتأمين أبسط مقومات الحياة،
+لكن الحقيقة تبقى أن النزوح ليس مجرد فقدان مكان،
+بل هو فقدان شعور الاستقرار والانتماء.
+
+ورغم كل ذلك، يظل الأمل حاضرًا،
+في عودة قريبة، في بيت يُعاد بناؤه،
+وفي حياة تعود كما كانت… أو أفضل.
+</p>
+
+<p class="en">
+In Gaza, displacement is no longer just moving from one place to another,
+but a painful journey filled with fear and loss.
+Families are forced to leave their homes under bombing,
+carrying only what they can.
+
+Every tent holds a story, every corner tells of loss —
+of homes, loved ones, and safety.
+Children who once lived normal lives now grow up surrounded by fear,
+where explosions are part of daily life.
+
+Women try to hold families together,
+while men struggle to provide the basics,
+but displacement is more than losing a place —
+it is losing a sense of belonging.
+
+Yet, hope remains…
+for return, for rebuilding,
+and for life to rise again.
+</p>
+
+<a href="stories.html" class="back-btn">
+⬅ العودة إلى القصص
+</a>
+
+</div>
+
+<script>
+
+let isArabic = true;
+
+function toggleLang(){
+
+isArabic = !isArabic;
+
+document.querySelectorAll(".ar").forEach(el=>{
+el.style.display = isArabic ? "block" : "none";
+});
+
+document.querySelectorAll(".en").forEach(el=>{
+el.style.display = isArabic ? "none" : "block";
+});
+
+}
+
+</script>
+
+</body>
+</html>

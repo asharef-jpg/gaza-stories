@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>صدى غزة</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Tahoma;
+}
+
+body{
+
+direction:rtl;
+
+color:white;
+
+background:
+linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),
+url("story-bg.jpg");
+
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+
+}
+
+/* NAVBAR */
+
+nav{
+
+background:black;
+
+display:flex;
+
+justify-content:space-between;
+
+padding:15px 40px;
+
+}
+
+nav a{
+
+color:white;
+
+margin-left:20px;
+
+text-decoration:none;
+
+cursor:pointer;
+
+}
+
+/* HERO */
+
+.hero{
+
+height:70vh;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+}
+
+.hero-box{
+
+background:rgba(0,0,0,0.55);
+
+padding:40px 60px;
+
+border-radius:10px;
+
+text-align:center;
+
+}
+
+.hero-box h1{
+
+font-size:45px;
+
+margin-bottom:10px;
+
+}
+
+/* STORY FORM */
+
+.story-section{
+
+padding:60px 20px;
+
+text-align:center;
+
+}
+
+.story-box{
+
+background:rgba(0,0,0,0.55);
+
+padding:40px;
+
+width:50%;
+
+margin:auto;
+
+border-radius:10px;
+
+}
+
+.story-box input,
+.story-box textarea{
+
+width:100%;
+
+padding:12px;
+
+margin-bottom:12px;
+
+border:none;
+
+border-radius:6px;
+
+}
+
+.story-box textarea{
+
+height:120px;
+
+}
+
+.story-box button{
+
+background:#e74c3c;
+
+color:white;
+
+border:none;
+
+padding:12px 30px;
+
+cursor:pointer;
+
+border-radius:6px;
+
+}
+
+/* COUNTER */
+
+.counter{
+
+text-align:center;
+
+margin:40px 0;
+
+font-size:22px;
+
+font-weight:bold;
+
+}
+
+/* STORIES */
+
+#storiesContainer{
+
+max-width:800px;
+
+margin:40px auto;
+
+}
+
+.story-card{
+
+background:white;
+
+color:black;
+
+padding:20px;
+
+margin-bottom:20px;
+
+border-radius:10px;
+
+box-shadow:0 5px 10px rgba(0,0,0,0.2);
+
+}
+
+.story-card button{
+
+margin-top:10px;
+
+background:#e74c3c;
+
+color:white;
+
+border:none;
+
+padding:6px 12px;
+
+border-radius:6px;
+
+cursor:pointer;
+
+}
+
+/* GALLERY */
+
+.gallery{
+
+padding:60px;
+
+text-align:center;
+
+}
+
+.gallery-grid{
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:20px;
+
+max-width:1000px;
+
+margin:auto;
+
+}
+
+.gallery-grid img{
+
+width:100%;
+
+height:180px;
+
+object-fit:cover;
+
+border-radius:10px;
+
+}
+
+/* FOOTER */
+
+footer{
+
+background:black;
+
+text-align:center;
+
+padding:20px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<nav>
+
+<div>صدى غزة</div>
+
+<div>
+
+<a href="index.html">الرئيسية</a>
+
+<a href="#stories">صوت من غزة</a>
+
+<a href="stories.html">القصص و الفيديوهات</a>
+
+</div>
+
+</nav>
+
+
+<section class="hero">
+
+<div class="hero-box">
+
+<h1>صدى غزة</h1>
+
+<p>
+
+منصة رقمية لتوثيق قصص الحرب والصمود في غزة  
+ومشاركة تجارب الناس للحفاظ على الذاكرة الإنسانية
+
+</p>
+
+</div>
+
+</section>
+
+
+<section class="story-section" id="stories">
+
+<h2 style="margin-bottom:20px">اكتب قصتك</h2>
+
+<div class="story-box">
+
+<input id="name" placeholder="اسمك">
+
+<textarea id="story" placeholder="اكتب قصتك هنا"></textarea>
+
+<button onclick="addStory()">إرسال القصة</button>
+
+</div>
+
+</section>
+
+
+<div class="counter">
+
+تم توثيق <span id="storyCount">0</span> قصة من غزة
+
+</div>
+
+
+<div id="storiesContainer"></div>
+
+
+
+<section class="gallery">
+
+<h2>صور من غزة</h2>
+
+<br>
+
+<div class="gallery-grid">
+
+<img src="gaza1.jpg">
+
+<img src="gaza2.jpg">
+
+<img src="gaza3.jpg">
+
+</div>
+
+</section>
+
+
+<footer>
+
+<p>© 2026 صدى غزة</p>
+
+<p>منصة لتوثيق القصص الإنسانية في غزة</p>
+
+</footer>
+
+
+<script>
+
+let stories = JSON.parse(localStorage.getItem("stories")) || []
+
+let container = document.getElementById("storiesContainer")
+
+function renderStories(){
+
+container.innerHTML=""
+
+document.getElementById("storyCount").innerText = stories.length
+
+stories.forEach((story,index)=>{
+
+let card=document.createElement("div")
+
+card.className="story-card"
+
+card.innerHTML=`
+
+<h3>${story.name}</h3>
+
+<p>${story.text}</p>
+
+<button onclick="likeStory(${index})">
+
+❤️ إعجاب (${story.likes || 0})
+
+</button>
+
+<div style="margin-top:15px">
+
+<input id="commentInput${index}" placeholder="اكتب تعليق..." style="width:70%;padding:6px">
+
+<button onclick="addComment(${index})">إرسال</button>
+
+</div>
+
+<div id="comments${index}" style="margin-top:10px"></div>
+
+`
+
+container.appendChild(card)
+
+if(story.comments){
+
+let commentsDiv = card.querySelector("#comments"+index)
+
+story.comments.forEach(c=>{
+
+let p=document.createElement("p")
+
+p.innerHTML="💬 "+c
+
+commentsDiv.appendChild(p)
+
+})
+
+}
+
+})
+
+}
+
+
+function addStory(){
+
+let name=document.getElementById("name").value
+
+let text=document.getElementById("story").value
+
+if(name==""||text==""){
+
+alert("اكتب اسمك وقصتك")
+
+return
+
+}
+
+let newStory={
+
+name:name,
+
+text:text,
+
+likes:0,
+
+comments:[]
+
+}
+
+stories.unshift(newStory)
+
+localStorage.setItem("stories",JSON.stringify(stories))
+
+renderStories()
+
+document.getElementById("name").value=""
+
+document.getElementById("story").value=""
+
+}
+
+
+function likeStory(index){
+
+stories[index].likes++
+
+localStorage.setItem("stories",JSON.stringify(stories))
+
+renderStories()
+
+}
+
+
+function addComment(index){
+
+let input=document.getElementById("commentInput"+index)
+
+let text=input.value
+
+if(text=="") return
+
+stories[index].comments.push(text)
+
+localStorage.setItem("stories",JSON.stringify(stories))
+
+renderStories()
+
+}
+
+renderStories()
+
+</script>
+
+
+</body>
+</html>

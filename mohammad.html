@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>محمد الحلو</title>
+
+<style>
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:Tahoma;}
+
+body{
+direction:rtl;
+background:linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.95)),url("story-bg.jpg");
+background-size:cover;
+color:white;
+}
+
+/* NAV */
+
+nav{
+background:rgba(0,0,0,0.7);
+display:flex;
+justify-content:space-between;
+padding:15px 40px;
+}
+
+nav a{
+color:white;
+margin-left:20px;
+text-decoration:none;
+}
+
+/* CONTAINER */
+
+.container{
+width:85%;
+margin:40px auto;
+}
+
+/* IMAGE */
+
+.image{
+text-align:center;
+margin-bottom:30px;
+}
+
+.image img{
+width:350px;
+max-width:100%;
+border-radius:10px;
+}
+
+/* TITLE */
+
+h1{
+margin-bottom:20px;
+}
+
+/* TEXT */
+
+p{
+line-height:2;
+color:#ddd;
+margin-bottom:20px;
+}
+
+/* BUTTON */
+
+.back-btn{
+display:inline-block;
+margin-top:20px;
+background:#e74c3c;
+color:white;
+padding:10px 20px;
+text-decoration:none;
+border-radius:5px;
+}
+
+.back-btn:hover{
+background:#c0392b;
+}
+
+/* LANGUAGE */
+
+.en{
+display:none;
+direction:ltr;
+color:#aaa;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+<div>Gaza Voice</div>
+<div>
+<a href="index.html">الرئيسية</a>
+<a href="stories.html">القصص</a>
+<button onclick="toggleLang()" style="background:red;color:white;border:none;padding:8px 15px;border-radius:5px;cursor:pointer;">
+EN / AR
+</button>
+</div>
+</nav>
+
+<div class="container">
+
+<div class="image">
+<img src="mohammad.jpg">
+</div>
+
+<h1 class="ar">محمد الحلو – توثيق الفقد</h1>
+<h1 class="en">Mohammad Al-Helou – Documenting Loss</h1>
+
+<p class="ar">
+في لحظة واحدة، يمكن أن يتغير كل شيء.
+هذا ما حدث مع محمد الحلو، الذي لم يكن يتوقع أن تتحول الكاميرا التي يحملها إلى شاهد على فقده الشخصي.
+
+محمد كان يصوّر كغيره من أبناء غزة، يوثق الأحداث وينقل ما يحدث حوله،
+لكن هذه المرة لم يكن المشهد مجرد خبر… بل كان حياته.
+
+بين أصوات القصف والغبار الذي ملأ المكان، وجد نفسه أمام واقع لا يُصدق،
+حيث فقد أفرادًا من عائلته في لحظة واحدة،
+لتتحول عدسته من توثيق حدث عام إلى تسجيل لحظة انهيار شخصي.
+
+ما يجعل قصة محمد مختلفة، أنه لم يتوقف.
+رغم الصدمة، ورغم الألم، استمر في التصوير،
+وكأن الكاميرا أصبحت وسيلته الوحيدة لفهم ما حدث،
+أو ربما للهروب من حجم الفاجعة.
+
+في كل لقطة التقطها، لم يكن يوثق فقط الدمار،
+بل كان يوثق مشاعر إنسان يعيش أقسى لحظات حياته.
+الصوت، الصورة، الارتباك، كلها تحكي قصة لا تحتاج إلى شرح.
+
+محمد الحلو لم يكن مجرد شاهد على الحرب،
+بل أصبح جزءًا منها…
+حيث تلاشت الحدود بين المراقب والضحية.
+
+وهنا تكمن قوة القصة:
+أن الحقيقة لم تُنقل فقط،
+بل عُيشت لحظة بلحظة أمام العالم.
+</p>
+
+<p class="en">
+In a single moment, everything can change.
+This is what happened to Mohammad Al-Helou,
+who never expected his camera to witness his personal loss.
+
+Mohammad was documenting events like many others in Gaza,
+but this time, the scene was not just news…
+it was his own life.
+
+Amid explosions and dust,
+he faced an unimaginable reality —
+losing members of his family in an instant.
+
+What makes his story powerful is that he did not stop.
+Despite the shock and pain, he continued filming,
+as if the camera became his only way to process what happened.
+
+Each frame he captured was not just destruction,
+but raw human emotion.
+
+Mohammad was not only documenting war,
+he became part of it.
+
+And this is where the truth becomes undeniable:
+it was not just reported…
+it was lived.
+</p>
+
+<a href="stories.html" class="back-btn">
+⬅ العودة إلى القصص
+</a>
+
+</div>
+
+<script>
+
+let isArabic = true;
+
+function toggleLang(){
+
+isArabic = !isArabic;
+
+document.querySelectorAll(".ar").forEach(el=>{
+el.style.display = isArabic ? "block" : "none";
+});
+
+document.querySelectorAll(".en").forEach(el=>{
+el.style.display = isArabic ? "none" : "block";
+});
+
+}
+
+</script>
+
+</body>
+</html>
